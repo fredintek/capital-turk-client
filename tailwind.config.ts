@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        "hero-image": "url('/capital-turk-background-img.png')",
+      },
     },
   },
   plugins: [],
