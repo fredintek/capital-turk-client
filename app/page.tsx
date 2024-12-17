@@ -1,4 +1,5 @@
 import Features from "@/components/features/Features";
+import Fun from "@/components/fun/Fun";
 import Showcase from "@/components/showcase/Showcase";
 import Today from "@/components/today/Today";
 
@@ -15,6 +16,8 @@ export default function Home() {
       <Showcase />
 
       {/* Fun */}
+      <Fun />
+      
       {/* Downloads */}
     </>
   )

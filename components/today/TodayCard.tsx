@@ -7,7 +7,7 @@ type Props = {
 
 const TodayCard = ({ time, title }: Props) => {
   return (
-    <div className='bg-white rounded-2xl py-5 px-3 flex flex-col min-w-[285px] max-w-[285px] h-[180px] shadow-shadow-1'>
+    <div className='bg-white rounded-2xl py-5 px-3 flex flex-col w-full h-[180px] shadow-shadow-1'>
         {/* time */}
         <p className='bg-red-500 text-white px-6 py-2 rounded-full w-fit'>{time}</p>
 
