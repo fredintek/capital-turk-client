@@ -1,6 +1,6 @@
 "use client"
 import { HeroContent } from '@/utilities/interfaces'
-import { AlignJustify, X } from 'lucide-react'
+import { AlignJustify, Play, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -36,8 +36,6 @@ const Header = () => {
     useEffect(() => {
     setActiveLink(pathname)
     }, [pathname])
-
-    console.log("openSidebar", openSidebar)
 
     return (
     <div className={`w-full ${ heroContent[activeLink]?.height } relative`}>
@@ -84,32 +82,51 @@ const Header = () => {
             </div>
 
             {/* MOBILE MENU */}
-            <div className={`fixed z-40 min-[901px]:hidden bg-white top-0 left-0 w-full h-[50vh] flex flex-col items-center justify-center opacity-70 backdrop-blur-sm gap-8 ${ openSidebar ? "translate-x-0" : "translate-x-[100%]" } transition-transform duration-300 ease-out`}>
+            <div className={`fixed z-40 min-[901px]:hidden bg-[#0d0d1f] top-0 left-0 w-full h-[50vh] flex flex-col items-center justify-center opacity-90 gap-8 ${ openSidebar ? "translate-x-0" : "translate-x-[100%]" } transition-transform duration-300 ease-out`}>
                 {
                     menuLinks.map((link, index) => (
-                        <Link key={index} href={link.href} className={`text-lg font-semibold ${activeLink === link.href ? 'text-red-500' : 'text-black'} hover:text-red-400 transition-colors duration-300`}>
+                        <Link key={index} href={link.href} className={`text-lg font-semibold ${activeLink === link.href ? 'text-red-500' : 'text-white'} hover:text-red-400 transition-colors duration-300`}>
                             {link.label}
                         </Link>
                     ))
                 }
+                <Link href="" className='flex gap-3 items-center bg-white py-2 px-3 rounded-full'>
+                    {/* ICON */}
+                    <Image
+                        className=""
+                        src="/whatsapp.svg"
+                        alt="whatsapp-icon"
+                        width={25}
+                        height={25}
+                        priority
+                    />
 
-                <X onClick={() => setOpenSidebar(false)} className='text-black cursor-pointer absolute right-4 top-8' size={25}/>
+                    {/* NUMBER */}
+                    <span className='text-[#4caf50] tracking-wide font-semibold'>05391011071</span>
+                </Link>
+
+                <X onClick={() => setOpenSidebar(false)} className='text-white cursor-pointer absolute right-8 top-8' size={25}/>
             </div>
         </nav>
 
         {/* HERO CONTENT */}
-        <div className='border absolute top-[50%] -translate-y-[50%] left-[8%]'>
-            <h1 className='text-white text-5xl font-bold tracking-wide w-[515px] leading-tight'>{heroContent[activeLink]?.title}</h1>
-            {
-                activeLink === "/" && (
-                    <>
-                        <p className='text-red-500 text-5xl font-bold tracking-wide mt-2'>{heroContent[activeLink]?.channel}</p>
-                        <Link href={heroContent[activeLink]?.link?.url || ""} className='text-white text-base font-light tracking-wide block mt-3 bg-red-500 py-4 px-14 w-fit rounded-full'>
-                            {heroContent[activeLink]?.link?.text}
-                        </Link>
-                    </>
-                )
-            }
+        <div className='absolute top-[50%] -translate-y-[50%] left-0 w-full'>
+            <div className="container">
+                <h1 className='text-white text-3xl min-[901px]:text-5xl font-bold tracking-wide max-w-[515px] leading-tight'>{heroContent[activeLink]?.title}</h1>
+                {
+                    activeLink === "/" && (
+                        <>
+                            <i className='text-red-500 text-3xl min-[901px]:text-5xl font-bold tracking-wide mt-2 inline-block'>
+                                {heroContent[activeLink]?.channel}
+                            </i>
+                            <Link href={heroContent[activeLink]?.link?.url || ""} className='text-white text-base font-light tracking-wide mt-10 bg-red-500 py-4 px-14 w-fit rounded-full flex gap-2 items-center'>
+                                <Play size={20}/>
+                                <span>{heroContent[activeLink]?.link?.text}</span>
+                            </Link>
+                        </>
+                    )
+                }
+            </div>
         </div>
     </div>
   )

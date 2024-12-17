@@ -15,6 +15,9 @@ export default {
       backgroundImage: {
         "hero-image": "url('/capital-turk-background-img.png')",
       },
+      boxShadow: {
+        "shadow-1": "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
+      },
     },
   },
   plugins: [],

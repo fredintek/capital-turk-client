@@ -1,9 +1,22 @@
-import Image from "next/image";
-import RootLayout from "./layout";
+import Features from "@/components/features/Features";
+import Showcase from "@/components/showcase/Showcase";
+import Today from "@/components/today/Today";
 
 export default function Home() {
-  return <p className="text-red-500">Hello World</p>
-    // <RootLayout heroContent={{ title: "Address of Quality Music", channel: "107.1", link: { text: "Listen Online", url: "" } }}>
-    {/* </RootLayout> */}
+  return (
+    <>
+      {/* Features */}
+      <Features />
+
+      {/* Today */}
+      <Today />
+
+      {/* Showcase */}
+      <Showcase />
+
+      {/* Fun */}
+      {/* Downloads */}
+    </>
+  )
   
 }
