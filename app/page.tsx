@@ -1,3 +1,4 @@
+import Download from "@/components/downloadSection/Download";
 import Features from "@/components/features/Features";
 import Fun from "@/components/fun/Fun";
 import Showcase from "@/components/showcase/Showcase";
@@ -17,8 +18,9 @@ export default function Home() {
 
       {/* Fun */}
       <Fun />
-      
+
       {/* Downloads */}
+      <Download />
     </>
   )
   
