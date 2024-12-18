@@ -3,6 +3,7 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import "./../globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+import ReduxProvider from "@/redux/ReduxProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,14 +30,16 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased flex flex-col min-h-[100vh]`}
       >
-        {/* HEADER */}
-        <Header />
+        <ReduxProvider>
+          {/* HEADER */}
+          <Header />
 
-        {/* CHILDREN */}
-        <main className="flex-1">{children}</main>
+          {/* CHILDREN */}
+          <main className="flex-1">{children}</main>
 
-        {/* FOOTER */}
-        <Footer />
+          {/* FOOTER */}
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );

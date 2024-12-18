@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./../globals.css";
+import ReduxProvider from "@/redux/ReduxProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,10 +28,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased flex flex-col min-h-[100vh]`}
       >
-        {/* CHILDREN */}
-        <section className="bg-radio-background w-screen h-screen">
-          {children}
-        </section>
+        <ReduxProvider>
+          {/* CHILDREN */}
+          <section className="bg-radio-background w-screen h-screen">
+            {children}
+          </section>
+        </ReduxProvider>
       </body>
     </html>
   );

@@ -1,0 +1,9 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+// Define a base URL for your API
+export const apiSlice = createApi({
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
+  }),
+  endpoints: (builder) => ({}),
+});
