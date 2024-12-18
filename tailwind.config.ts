@@ -14,6 +14,8 @@ export default {
       },
       backgroundImage: {
         "hero-image": "url('/capital-turk-background-img.png')",
+        "radio-background":
+          "radial-gradient(circle, rgb(185, 0, 0) 25%, rgb(0, 0, 0) 75%)",
       },
       boxShadow: {
         "shadow-1": "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
