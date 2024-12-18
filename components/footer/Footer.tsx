@@ -57,7 +57,9 @@ const Footer = (props: Props) => {
       <div className="container flex justify-between items-center max-[600px]:flex-col max-[600px]:items-center max-[600px]:gap-6">
         {/* logo */}
         <div className="flex flex-col items-center gap-2">
-          <img src="/capital-turk-logo.png" className="block" alt="logo" />
+          <Link href="/">
+            <img src="/capital-turk-logo.png" className="block" alt="logo" />
+          </Link>
           <p className="text-white text-sm hover:text-red-500 cursor-pointer transition-colors duration-200">
             Capital Radio &copy; 2024
           </p>

@@ -51,12 +51,19 @@ const Header = () => {
         }`}
         alt=""
       />
+      {/* <Image src="/capital-turk-background-img.png" alt="" layout="fill" /> */}
 
       {/* NAV CONTENT */}
       <nav className="absolute top-0 left-0 right-0 flex items-center py-4 z-30 overflow-x-hidden">
         <div className="container flex justify-between items-end max-[900px]:items-center">
           {/* LOGO */}
-          <img src="/capital-turk-logo.png" alt="logo" />
+          <Link href={"/"}>
+            <img
+              src="/capital-turk-logo.png"
+              alt="logo"
+              className="cursor-pointer"
+            />
+          </Link>
 
           {/* MENU LINKS */}
           <div className="flex-1 flex justify-center items-center gap-4 max-[900px]:hidden">
@@ -75,8 +82,8 @@ const Header = () => {
 
           {/* WHATSAPP CONTACT */}
           {/* https://api.whatsapp.com/send?phone=+905300000000&text=Hey%20Capital%20Turk!%20I'm%20interested%20in%20your%20${heroContent[pathname].title}.%20Please%20let%20me%20know%20more.%20Thanks. */}
-          <a
-            href=""
+          <Link
+            href="http://wa.me/905391011071/"
             className="max-[900px]:hidden flex gap-3 items-center bg-white py-2 px-3 rounded-full"
           >
             {/* ICON */}
@@ -93,7 +100,7 @@ const Header = () => {
             <span className="text-[#4caf50] tracking-wide font-semibold">
               05391011071
             </span>
-          </a>
+          </Link>
 
           {/* HAMBURGER */}
           <AlignJustify
@@ -123,7 +130,7 @@ const Header = () => {
             </Link>
           ))}
           <Link
-            href=""
+            href="http://wa.me/905391011071/"
             className="flex gap-3 items-center bg-white py-2 px-3 rounded-full"
           >
             {/* ICON */}
@@ -167,7 +174,7 @@ const Header = () => {
               </i>
               <Link
                 href={heroContent[activeLink]?.link?.url || ""}
-                className="text-white text-base font-light tracking-wide mt-10 bg-red-500 py-4 px-14 w-fit rounded-full flex gap-2 items-center"
+                className="text-white text-base font-light tracking-wide mt-10 hover:bg-[#be123c] bg-red-500 py-4 px-14 w-fit rounded-full flex gap-2 items-center transition-colors duration-300"
               >
                 <Play size={20} />
                 <span>{heroContent[activeLink]?.link?.text}</span>
