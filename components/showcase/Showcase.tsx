@@ -51,8 +51,8 @@ const Showcase = () => {
           }}
         >
           {
-            Array.from({ length: 8 }).map((item, _) => (
-              <SwiperSlide>
+            Array.from({ length: 8 }).map((item, idx) => (
+              <SwiperSlide key={idx}>
                 <div className="border rounded-xl bg-white pb-5 overflow-hidden">
                   {/* youtube video */}
                   <iframe

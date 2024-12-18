@@ -28,3 +28,7 @@ body {
 .swiper-button-next {
   color: white !important;
 }
+
+.swiper-pagination {
+  bottom: 0px !important;
+}
