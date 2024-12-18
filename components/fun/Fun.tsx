@@ -43,7 +43,7 @@ const Fun = (props: Props) => {
                 <div
                   className={`flex-1 flex gap-4 rounded-xl ${
                     isEven ? "bg-[#f9d3d6]" : "bg-[#eccee2]"
-                  } h-[300px] p-4 relative overflow-hidden`}
+                  } shadow-shadow-2 h-[300px] p-4 relative overflow-hidden`}
                 >
                   {/* left */}
                   <div className="relative z-20 h-full flex flex-col justify-center gap-6">
