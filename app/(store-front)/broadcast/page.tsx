@@ -7,68 +7,7 @@ import React, { useState } from "react";
 
 type Props = {};
 
-const broadcastData = [
-  {
-    day: "Monday",
-    content: [
-      { time: "1970-01-21T11:39:58.171+00:00", text: "Morning Vibes" },
-      { time: "1970-01-21T15:39:58.171+00:00", text: "Daily News Brief" },
-      { time: "1970-01-21T12:39:58.171+00:00", text: "Afternoon Hits" },
-    ],
-  },
-  {
-    day: "Tuesday",
-    content: [
-      { time: "1970-01-21T20:39:58.171+00:00", text: "Wake-Up Tunes" },
-      { time: "1970-01-21T21:39:58.171+00:00", text: "Tech Talk" },
-      { time: "1970-01-21T17:39:58.171+00:00", text: "Drive Home" },
-    ],
-  },
-  {
-    day: "Wednesday",
-    content: [
-      { time: "1970-01-21T16:39:58.171+00:00", text: "Midweek Motivation" },
-      { time: "1970-01-21T13:39:58.171+00:00", text: "Lunch Beats" },
-      { time: "1970-01-21T09:39:58.171+00:00", text: "Evening Relaxation" },
-    ],
-  },
-  {
-    day: "Thursday",
-    content: [
-      { time: "1970-01-21T22:39:58.171+00:00", text: "Morning Energy" },
-      { time: "1970-01-21T23:39:58.171+00:00", text: "Noon News" },
-      { time: "1970-01-21T19:39:58.171+00:00", text: "Throwback Thursday" },
-    ],
-  },
-  {
-    day: "Friday",
-    content: [
-      { time: "1970-01-21T01:39:58.171+00:00", text: "Feel-Good Friday" },
-      { time: "1970-01-21T02:39:58.171+00:00", text: "Afternoon Groove" },
-      { time: "1970-01-21T03:39:58.171+00:00", text: "Friday Night Party" },
-    ],
-  },
-  {
-    day: "Saturday",
-    content: [
-      { time: "1970-01-21T04:39:58.171+00:00", text: "Weekend Warmup" },
-      { time: "1970-01-21T05:39:58.171+00:00", text: "Sports Talk" },
-      { time: "1970-01-21T06:39:58.171+00:00", text: "Late-Night Chill" },
-    ],
-  },
-  {
-    day: "Sunday",
-    content: [
-      { time: "1970-01-21T07:39:58.171+00:00", text: "Sunday Morning Jazz" },
-      { time: "1970-01-21T08:39:58.171+00:00", text: "Brunch Beats" },
-      { time: "1970-01-21T10:39:58.171+00:00", text: "Relax and Reflect" },
-    ],
-  },
-];
-
 const page = (props: Props) => {
-  const [activeTab, setActive] = useState<string>(broadcastData[0]["day"]);
-
   const {
     data: allBroadcastData,
     error: allBroadcastDataError,
@@ -79,6 +18,7 @@ const page = (props: Props) => {
     refetchOnMountOrArgChange: true,
     refetchOnReconnect: true,
   });
+  const [activeTab, setActive] = useState<string>(allBroadcastData![0]["day"]);
 
   const handleTabClick = (day: string) => {
     setActive(day);

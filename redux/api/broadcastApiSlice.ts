@@ -1,3 +1,4 @@
+import { BroadcastData } from "@/utilities/interfaces";
 import { apiSlice } from ".";
 
 export const broadcastApiSlice = apiSlice.injectEndpoints({
@@ -6,7 +7,7 @@ export const broadcastApiSlice = apiSlice.injectEndpoints({
     // get all broadcast data
     getAllBroadcastData: builder.query({
       query: () => "/broadcast-flow",
-      transformResponse: (response: any) => {
+      transformResponse: (response: any): BroadcastData[] => {
         return response.data;
       },
       providesTags: ["Broadcast"],
