@@ -8,19 +8,25 @@ const Download = (props: Props) => {
     <section className="py-10">
       <div className="container flex justify-center flex-wrap">
         {/* APP STORE */}
-        <div className="w-fit">
-          <img src="/appstore.svg" className="cursor-pointer" alt="" />
-        </div>
+        <img
+          src="/appstore.svg"
+          className="cursor-pointer h-[140px] w-fit"
+          alt=""
+        />
 
         {/* PLAY STORE */}
-        <div className="w-fit">
-          <img src="/googleplay.svg" className="cursor-pointer" alt="" />
-        </div>
+        <img
+          src="/googleplay.svg"
+          className="cursor-pointer h-[140px] w-fit"
+          alt=""
+        />
 
         {/* TUNE IN */}
-        <div className="w-fit">
-          <img src="/tunein.svg" className="cursor-pointer" alt="" />
-        </div>
+        <img
+          src="/tunein.svg"
+          className="cursor-pointer h-[140px] w-fit"
+          alt=""
+        />
       </div>
     </section>
   );

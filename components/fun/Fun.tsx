@@ -78,10 +78,12 @@ const Fun = (props: Props) => {
                         ).getMinutes()}`}</span>
                         <span>Weekdays</span>
                       </p>
-                      <p className="max-w-[200px] font-semibold text-xl">
+                      <p className="text-black max-w-[200px] font-semibold text-xl">
                         {item?.title}
                       </p>
-                      <p className="max-w-[180px]">{item?.content}</p>
+                      <p className="text-black max-w-[180px]">
+                        {item?.content}
+                      </p>
                     </div>
 
                     {/* right */}

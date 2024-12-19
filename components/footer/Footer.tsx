@@ -58,7 +58,11 @@ const Footer = (props: Props) => {
         {/* logo */}
         <div className="flex flex-col items-center gap-2">
           <Link href="/">
-            <img src="/capital-turk-logo.png" className="block" alt="logo" />
+            <img
+              src="/capital-turk-logo.png"
+              className="block h-[80px] w-fit"
+              alt="logo"
+            />
           </Link>
           <p className="text-white text-sm hover:text-red-500 cursor-pointer transition-colors duration-200">
             Capital Radio &copy; 2024

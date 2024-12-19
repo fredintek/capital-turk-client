@@ -26,7 +26,7 @@
 }
 
 .container {
-  @apply max-w-[1200px] w-[90%] mx-auto;
+  @apply max-w-[1140px] w-[90%] mx-auto;
 }
 
 body {
@@ -35,7 +35,8 @@ body {
   font-family: var(--font-inter);
 }
 
-code, pre {
+code,
+pre {
   font-family: var(--font-roboto-mono); /* Mono font for code or special text */
 }
 
