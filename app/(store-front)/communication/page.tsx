@@ -1,38 +1,66 @@
+"use client";
+import ErrorCard from "@/components/ErrorCard";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import { useGetAllCommunicationDataQuery } from "@/redux/api/communicationApiSlice";
 import React from "react";
 
 type Props = {};
 
 const page = (props: Props) => {
+  const {
+    data: allCommunicationData,
+    error: allCommunicationDataError,
+    isLoading: allCommunicationDataIsLoading,
+    isError: allCommunicationDataIsError,
+  } = useGetAllCommunicationDataQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+    refetchOnReconnect: true,
+  });
+
   return (
     <section className="py-10">
       <div className="container flex flex-col gap-8">
-        {/* top */}
-        <div className="flex flex-col gap-8">
-          <h1 className="text-2xl font-semibold">
-            Capitalcity Publishing Ltd. (Cyprus)
-          </h1>
+        {/* Loading State */}
+        {allCommunicationDataIsLoading && <LoadingSpinner />}
 
-          {/* address */}
-          <div>
-            <h2 className="text-xl font-medium">Address</h2>
-            <p>
-              Capital Radio Studios, Organized Industrial Zone 21st Street,
-              No:66, Nicosia / TRNC
-            </p>
-          </div>
+        {/* Error State */}
+        {allCommunicationDataIsError && (
+          <ErrorCard errorData={allCommunicationDataError} />
+        )}
 
-          {/* phone */}
-          <div>
-            <h2 className="text-xl font-medium">Telephone</h2>
-            <p>(0392) 444 93 80 | (0392) 225 76 33 | (0392) 225 70 71</p>
-          </div>
+        {/* Success State */}
+        {!allCommunicationDataIsLoading &&
+          !allCommunicationDataIsError &&
+          allCommunicationData && (
+            <>
+              {/* top */}
+              <div className="flex flex-col gap-8">
+                <h1 className="text-2xl font-semibold">
+                  {allCommunicationData[0]?.title}
+                </h1>
 
-          {/* advert */}
-          <div>
-            <h2 className="text-xl font-medium">Advert</h2>
-            <p className="text-red-500 font-light">info@capitalcyprus.com</p>
-          </div>
-        </div>
+                {/* address */}
+                <div>
+                  <h2 className="text-xl font-medium">Address</h2>
+                  <p>{allCommunicationData[0]?.address}</p>
+                </div>
+
+                {/* phone */}
+                <div>
+                  <h2 className="text-xl font-medium">Telephone</h2>
+                  <p>{allCommunicationData[0]?.phone?.join("| ")}</p>
+                </div>
+
+                {/* advert */}
+                <div>
+                  <h2 className="text-xl font-medium">Advert</h2>
+                  <p className="text-red-500 font-light">
+                    {allCommunicationData[0]?.advert}
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
 
         {/* bottom */}
         <div>

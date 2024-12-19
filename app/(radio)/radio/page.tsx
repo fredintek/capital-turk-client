@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 
 type Props = {};
@@ -7,13 +7,13 @@ type Props = {};
 const page = (props: Props) => {
   return (
     <div className="container h-full flex flex-col gap-4 text-[12px] min-[500px]:text-lg">
-      <Image
-        className="mt-20 mb-5 mx-auto"
-        src="/capital-turk-logo.png"
-        alt=""
-        width={400}
-        height={400}
-      />
+      <div className="mt-20 mb-5 mx-auto max-w-[600px] w-[90%] h-[150px]">
+        <img
+          src="/capital-turk-logo.png"
+          alt=""
+          className="w-full h-full object-contain"
+        />
+      </div>
       <div className="flex flex-col gap-8">
         <div className="flex gap-4 items-center justify-center bg-white rounded-full py-2">
           <div className="w-8 h-8 min-[500px]:h-10 min-[500px]:w-10">

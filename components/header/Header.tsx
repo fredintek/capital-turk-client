@@ -1,7 +1,7 @@
 "use client";
 import { HeroContent } from "@/utilities/interfaces";
 import { AlignJustify, Play, X } from "lucide-react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
