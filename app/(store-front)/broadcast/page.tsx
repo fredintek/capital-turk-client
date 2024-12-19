@@ -3,7 +3,7 @@ import ErrorCard from "@/components/ErrorCard";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useGetAllBroadcastDataQuery } from "@/redux/api/broadcastApiSlice";
 import { BroadcastContentItem, BroadcastData } from "@/utilities/interfaces";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {};
 
@@ -18,12 +18,17 @@ const page = (props: Props) => {
     refetchOnMountOrArgChange: true,
     refetchOnReconnect: true,
   });
-  const [activeTab, setActive] = useState<string>(allBroadcastData![0]["day"]);
+  const [activeTab, setActive] = useState<string>("");
 
   const handleTabClick = (day: string) => {
     setActive(day);
     allBroadcastDataRefetch();
   };
+
+  useEffect(() => {
+    setActive(allBroadcastData![0]?.day || "Monday");
+    allBroadcastDataRefetch();
+  }, []);
 
   return (
     <section className="py-10">

@@ -29,12 +29,11 @@ const Header = () => {
   const heroContent: HeroContent = {
     "/": {
       title: "Address of Quality Music",
-      height: "h-[100vh]",
       channel: "107.1",
       link: { text: "Listen Online", url: "/radio" },
     },
-    "/broadcast": { title: "Broadcast Flow", height: "h-[50vh]" },
-    "/communication": { title: "Communication", height: "h-[50vh]" },
+    "/broadcast": { title: "Broadcast Flow" },
+    "/communication": { title: "Communication" },
   };
 
   useEffect(() => {
@@ -42,7 +41,7 @@ const Header = () => {
   }, [pathname]);
 
   return (
-    <div className={`w-full ${heroContent[activeLink]?.height} relative`}>
+    <div className={`w-full h-[70vw] md:h-[50vw] relative`}>
       {/* BACKGROUND IMAGE */}
       <img
         src="/capital-turk-background-img.png"
@@ -158,26 +157,24 @@ const Header = () => {
       </nav>
 
       {/* HERO CONTENT */}
-      <div
-        className={`absolute ${
-          activeLink === "/" ? "top-[50%] -translate-y-[50%]" : "top-[60%]"
-        } left-0 w-full`}
-      >
+      <div className={`absolute top-[50%] left-0 w-full`}>
         <div className="container">
-          <h1 className="text-white text-3xl min-[901px]:text-5xl font-bold tracking-wide max-w-[515px] leading-tight">
+          <h1 className="text-white text-xl md:text-3xl font-bold tracking-wide max-w-[515px] leading-[1.1] md:leading-tight">
             {heroContent[activeLink]?.title}
           </h1>
           {activeLink === "/" && (
             <>
-              <i className="text-red-500 text-3xl min-[901px]:text-5xl font-bold tracking-wide mt-2 inline-block">
+              <i className="text-red-500 text-xl md:text-3xl font-bold tracking-wide inline-block">
                 {heroContent[activeLink]?.channel}
               </i>
               <Link
                 href={heroContent[activeLink]?.link?.url || ""}
-                className="text-white text-base font-light tracking-wide mt-10 hover:bg-[#be123c] bg-red-500 py-4 px-14 w-fit rounded-full flex gap-2 items-center transition-colors duration-300"
+                className="text-white text-base font-light tracking-wide mt-1 hover:bg-[#be123c] bg-red-500 py-2 px-6 w-fit rounded-full flex gap-2 items-center transition-colors duration-300"
               >
-                <Play size={20} />
-                <span>{heroContent[activeLink]?.link?.text}</span>
+                <Play className="w-3 h-3" />
+                <span className="text-sm md:text-base">
+                  {heroContent[activeLink]?.link?.text}
+                </span>
               </Link>
             </>
           )}
